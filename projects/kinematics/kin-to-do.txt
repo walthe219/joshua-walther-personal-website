@@ -1,0 +1,5 @@
+write test cases
+
+stringbuilder to create result feedback text explaing steps and results of calculation and any problems
+
+create position y vs x graph, points generated from inital and final time chart.js

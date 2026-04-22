@@ -1,0 +1,31 @@
+-maybe use google polymer for resuable nav bar and other elements
+-mocha for writting cases
+
+PROJECTS
+
+Math:
+Kinematics Simulator
+Matrix Calculator
+Super Calculator - write interpreter for it 
+Graphing Calculator
+Num Methods 
+
+Games:
+Tic Tac Toe
+Connect 4
+Tetris
+Blackjack
+Solitare
+Simon Says
+Snake
+Guess Who - Two player online
+Battle Ship - Two player online
+
+Other:
+To Do List App
+Video Game Tinder Swipper
+Interative Neural Network builder
+Quizlet Clone
+QR Code Generator
+De of Het?
+Data Structures Visualizer

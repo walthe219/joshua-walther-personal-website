@@ -1,0 +1,33 @@
+/* 
+    Primary Color: #ffa500
+    Grey: #272727
+ */
+
+* {
+    font-family: "Poppins", sans-serif;
+    color: #272727;
+}
+
+#main{
+    margin: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#cardContainer{
+    display: flex;
+    border: 1px solid black;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 250px;
+    box-shadow: 0px 4px 6px #847bd4;
+    border-radius: 10px;
+    margin: 3%;
+    font-size: 30px;
+}
+#controls{
+    display: flex;
+    justify-content: center;
+}

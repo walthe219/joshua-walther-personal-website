@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De of Het?</title>
+    <link rel="stylesheet" href="/projects/de-of-het/deofhet.css">
+</head>
+<body>
+    <nav>
+        <hr>
+        Projects:
+        <a href="/index.html">Home</a></li> |
+        <a href="/projects/kinematics/kinematics.html">Kinematics Simulator</a></li>     |
+        <a href="/projects/de-of-het/de-of-het.html">De of Het</a></li> |
+        <!-- <a href="/projects/matrix-calculator/matrix.html">Matrix Calculator</a></li> | -->
+        <!-- <a href="/projects/flashcards/flashcards.html">Flashcards</a></li> -->
+        <hr>
+    </nav>
+    <header>
+        <hr>
+        <h1>Gebruik ik "de" of "het"? <img src="/projects/de-of-het/NederlandseVlag.jpg" alt="Nederlandse Vlag" style="width: 30px;"></h1>
+        <p>When studying Dutch I find it hard to remeber the gender of the nouns, here is a tool to study which words use de of het.</p>
+        <p>Als studeer ik Nederlands, vind it het moeilijk om de naamwoorden te onthouden, hier is iets leren welke woorden de of het gebruiken.</p>
+        
+        <hr>
+    </header>
+    <main>
+        <section id="game">
+            <!-- <h2><span>De</span> of <span>Het</span>?</h2> -->
+            <div id="wordCard">
+                <p >
+                    <span id="article"></span>
+                    <span id="word">De of Het?</span>
+                </p>
+            </div>
+        
+            <div id="buttons">
+                <button id="deButton">De</button>
+                <button id = "nextButton">Next</button>
+                <button id="hetButton">Het</button>
+                <br>
+                <!-- <button id="continueButton">Continue</button> -->
+            </div> 
+
+            
+            <p>Count: <span id="count">0/0</span> Accuracy <span id="accuracy">0%</span></p>
+            
+        </section>
+        <section id="input">
+            <input id="fileInput" type="file" accept=".csv"><br>
+            <button id = "useButton" type="button">Use</button>
+        </section>
+    </main>
+    <script src="deOfHet.js"></script>
+</body>
+</html>

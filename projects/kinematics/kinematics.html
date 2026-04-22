@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinematics Simulator</title>
+    <link rel="stylesheet" href="/Projects/kinematics/kinematics.css">
+</head>
+<body>
+    <nav>
+        <hr>
+        Projects:
+        <a href="/index.html">Home</a></li> |
+        <a href="/projects/kinematics/kinematics.html">Kinematics Simulator</a></li>     |
+        <a href="/projects/de-of-het/de-of-het.html">De of Het</a></li> |
+        <!-- <a href="/projects/matrix-calculator/matrix.html">Matrix Calculator</a></li> -->
+        <hr>
+    </nav>
+    <header>
+        <hr>
+        <h1>Kinematics Simulator</h1>
+        <p>
+            I'm a physics tutor at LSU, so I thought I would slap together a quick kinematics calculator.
+            I hope to expand on this further with a interactive simulation. 
+        </p>
+        <p>
+            You need three known kinematic varibles in the same direction to solve for the other two.
+            Time is a scalar with no direction and can be used in both the x and y.
+            If acceleration is zero, then the velocity never changes.
+            If time is zero, then there is no change.
+        </p>
+        <p>
+            Fill in the fields below with known values, and leave unknowns blank. 
+            Press calculate to fill in the blanks, given enough information. 
+        </p>
+        <hr>
+    </header>
+    <main>
+        <section id = inputs>
+        <hr>
+        <div hidden>    
+        <ul>
+            <li>Initial Velocity:</li>
+            <li>
+                <label for="v0">v<sub>0</sub> = </label>
+                <input id="v0" type="number" placeholder="?">
+            </li>
+            <li>
+                <label for="theta0">θ<sub>0</sub> =</label>
+                <input id="theta0" type="number" placeholder="?">
+                
+            </li>
+            <li>
+                <label for="t0">t<sub>0</sub> = </label>
+                <input id="t0" type="number" placeholder="?">
+            </li>
+        </ul>
+        <ul>
+            <li>Final Velocity:</li>
+            <li>
+                <label for="vf">v<sub>f</sub> = </label>
+                <input id="vf" type="number" placeholder="?">
+            </li>
+            <li>
+                <label for="thetaf">θ<sub>f</sub> =</label>
+                <input id="thetaf" type="number" placeholder="?">
+                
+            </li>
+            <li>
+                <label for="tf">t<sub>f</sub> = </label>
+                <input id="tf" type="number" placeholder="?">
+            </li>
+        </ul>
+        </div>
+        <ul >
+            <li>X Variables:</li>
+            <li>
+                <label for="x">&Delta;x =</label>
+                <input id="x" type="text" placeholder="?">
+            </li>
+            <li>
+                <label for="v0x">v<sub>0x</sub> = </label>
+                <input id="v0x" type="text" placeholder="?">
+            </li>
+            <li>
+                <label for="vfx">v<sub>fx</sub> = </label>
+                <input id="vfx" type="text" placeholder="?">
+            </li>
+            <li>
+                <label for="ax">a<sub>x</sub> = </label>
+                <input id="ax" type="text" placeholder="?">
+            </li>
+        </ul>                
+        <ul >
+            <li>Y Variables:</li>
+            <li>
+                <label for="y">&Delta;y =</label>
+                <input id="y" type="text" placeholder="?">
+            </li>
+            <li>
+                <label for="v0y">v<sub>0y</sub> = </label>
+                <input id="v0y" type="text" placeholder="?">
+            </li>
+            <li>
+                <label for="vfy">v<sub>fy</sub> = </label>
+                <input id="vfy" type="text" placeholder="?">
+            </li>
+            <li>
+                <label for="ay">a<sub>y</sub> = </label>
+                <input id="ay" type="text" placeholder="?">
+            </li>
+        </ul>
+        <ul>
+            <li>Time:</li>
+            <li>
+                <label for="deltat"> &Delta;t</label>
+                <input id="deltat" type="text" type="text" placeholder="?" min=0>
+            </li>
+        </ul>
+
+        <!-- <aside style="background-color: red;">
+            <canvas style="background-color: aqua; width: 1000px">
+
+            </canvas>
+        </aside> -->
+        
+        <!-- <input id="projMotion" type="checkbox" checked> -->
+        <!-- <label for="projMotion">Projectile Motion</label> -->
+        <hr>
+        <div id="buttons">
+            <button type="button" onclick="calculate()">Calculate</button>
+            <button>Undo</button>
+            <button>Redo</button>
+            <button type="button" onclick="resetFields()">Clear</button>
+        </div>
+        <p>Result:</p>
+        <p>Placeholder text</p>
+        <hr>
+        </section>
+
+        <section>
+            <hr>
+            <h4 >Kinematic Equations</h4>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p>v<sub>fx</sub> = v<sub>ox</sub> + a<sub>x</sub>t</p>
+                            <p>x = &frac12;(v<sub>ox</sub> + v<sub>fx</sub>)t</p>
+                            <p>x = v<sub>0x</sub>t + &frac12;a<sub>x</sub>t<sup>2</sup> </p>
+                            <p>v<sub>fx</sub><sup> 2</sup> = v<sub>0x</sub><sup>2</sup> + 2a<sub>x</sub>x</p>    
+                        </td>
+                        <td>
+                            <p>  |  </p>
+                            <p>  |  </p>
+                            <p>  |  </p>
+                            <p>  |  </p>
+                            <p>  |  </p> 
+                            
+                        </td>
+                        <td>
+                            <p>v<sub>fy</sub> = v<sub>oy</sub> + a<sub>y</sub>t</p>
+                            <p>y = &frac12;(v<sub>oy</sub> + v<sub>fy</sub>)t</p>
+                            <p>y = v<sub>0y</sub>t + &frac12;a<sub>y</sub>t<sup>2</sup> </p>
+                            <p>v<sub>fy</sub><sup> 2</sup> = v<sub>0y</sub><sup>2</sup> + 2a<sub>y</sub>y</p>    
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+        </section>
+    </main>
+    
+    <script src ="/projects/kinematics/kinematics.js"></script>
+</body>
+</html>

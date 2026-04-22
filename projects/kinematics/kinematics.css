@@ -1,0 +1,19 @@
+input{
+    width: 60px;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 15px;
+
+}
+li{
+    margin: 0px;
+}
+#inputs{
+    background-color:antiquewhite;
+}
+
+h4{
+    margin-bottom: 0px;
+}

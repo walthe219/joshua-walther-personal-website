@@ -1,0 +1,42 @@
+h2{
+   
+}
+
+#game{
+   
+}
+#wordCard{
+    border: 2px solid black;
+    text-align: center;
+    width: 305px;
+    border-radius: 10px;
+    margin: 1%;
+}
+
+#wordCard p{
+    font-size: 50px;
+}
+#buttons{
+
+}
+#buttons button{
+    border-radius: 5px;
+    font-size: 20px;
+    width: 100px;
+}
+#deButton {
+    background-color: rgb(242, 145, 145);
+}
+#hetButton{
+    background-color:  rgb(145, 179, 242);
+}
+#nextButton{
+    background-color:   rgb(254, 255, 255);
+}
+#continueButton button{
+    background-color:   rgb(254, 255, 255);
+}
+#buttons button:hover{
+    background-color:  #f6b651 ;
+}
+
