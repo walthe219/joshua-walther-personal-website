@@ -1,2 +1,2 @@
-# WebDev-Projects
+# Joshua Walther Personal Website
 
