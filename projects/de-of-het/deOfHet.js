@@ -1,22 +1,6 @@
-//user clicks start button
-//read csv file
-//create array of (word,article) tuples
-//shuffle words
-//initial count and numCorrect
-//display current word
-//user clicks de or het button
-//check article and says if correct or incorrect, update numCorrect
-//de and het buttons change color depending on answer
-//next or previous button to display next or last word
-//once finished list, replay button and stats appear
-//user clicks replay button to restart
-
-// document.getElementById("use").addEventListener("click", startGame());
-
-
-let correct = 0;
-let count = 0;
-let words = undefined;
+function getElem(id){
+    
+}
 
 const wordElement = document.getElementById("word");
 const articleElement = document.getElementById("article")
@@ -26,84 +10,75 @@ const accuracyElement = document.getElementById("accuracy");
 const deButton = document.getElementById("deButton");
 const hetButton = document.getElementById("hetButton");
 const nextButton = document.getElementById("nextButton");
-const useButton = document.getElementById("useButton");
+const defaultButton = document.getElementById("defaultButton");
 const fileInput = document.getElementById("fileInput");
 
 
-useButton.addEventListener("click",startGame);
-fileInput,addEventListener("change", ()=>{
-    useButton.disabled = false;
+fileInput.addEventListener("change", (event)=>{
+    startGame();
+    event.target.value = '';
 });
-deButton.addEventListener("click",guessDe);
+deButton.addEventListener("click",guessDe)
 hetButton.addEventListener("click",guessHet);
 nextButton.addEventListener("click",nextWord);
 
 deButton.disabled = true;
 hetButton.disabled = true;
 nextButton.disabled = true;
-useButton.disabled = true;
 
 
+let correct = 0;
+let count = 0;
+let words = [];
 
-async function readInput(){
-    file = fileInput.files[0];
-    reader = new FileReader();
-    let word = [];
+function readInput(){
+    console.log("readInput()");
+    const file = fileInput.files[0];
+    const reader = new FileReader();
 
-    reader.onload = (event) =>{
-        const fileContent = event.target.result;
-        const textArray = fileContent.split(/\r?\n/);
-        console.log(textArray);
-
-        let i = 0;
-        for(let str of textArray){
-            str = str.replace(/\s+/g, '');
-            words[i++] = str.split(/,/);
-            console.log(words[i-1]);
+    return new Promise((resolve, reject) => {
+        if (!file) {
+            reject("No file selected");
+            return;
         }
-    };
 
-    console.log(words);
-    await reader.readAsText(file);
-    return words;
-}
+        reader.onload = (event) =>{
+            const fileContent = event.target.result;
+            const textArray = fileContent.split(/\r?\n/);
+            console.log(textArray);
+            let words = [];
 
-async function loadWords(){
-    // words = await readInput();
-    //return shuffle(words);
-    let words = [
-        ["man","de"],
-         ["vrouw", "de"],
-         ["jongen", "de"],
-         ["kind", "het"],
-         ["meisje", "het"],
-         ["melk", "de"],
-         ["appel", "de"],
-         ["brood", "de"],
-         ["sap","het"],
-         ["water", "het"],    
-        ];
-    return words;
+            for(let str of textArray){
+                str = str.replace(/\s+/g, '');
+                words.push(str.split(/,/));
+                console.log(words.at(-1));
+            }
+            resolve(words);
+        };
+
+        reader.onerror = (error) => reject(error);
+        reader.readAsText(file);
+        console.log(words);
+    });
 }
 
 //knuth shuffle algorithm
 function shuffle(arr){
+    console.log("shuffle()");
     console.log(arr);
     for(let i = arr.length-1;i>0;i--){
-        j = Math.random(0,i);
-        // [arr[i], arr[j]] = [arr[j], arr[i]];
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     console.log(arr);
-    return arr
 }
 
-async function startGame(){  
+
+ async function startGame(){  
     console.log("Starting Game");
-    words = await loadWords(); 
+    words = await readInput();
+    shuffle(words);
     
-    deButton.disabled=false;
-    hetButton.disabled=false;
-    nextButton.disabled=false;
     count = -1;
     correct = 0;
     nextWord();
@@ -111,10 +86,13 @@ async function startGame(){
 }
 
 function nextWord(){
+    console.log("nextWord()");
     count++
+
     deButton.disabled=false;
     hetButton.disabled=false;
-    nextButton.disabled=false;
+    nextButton.disabled=true;
+
     wordElement.textContent = words[count][0];
     articleElement.textContent = "(?)";
     articleElement.style.color = "black";
@@ -128,11 +106,15 @@ function guessHet(){
     guess("het");
 }
 function guess(article){
+    console.log(`guess(${article})`);
     if(!(article == "de" || article == "het")){
-        throw new console.error();
+        console.error("Guess must be de or het");
     }
+
     deButton.disabled=true;
     hetButton.disabled=true;
+    nextButton.disabled=false;
+    
     articleElement.textContent = words[count][1];
     if(article == words[count][1]){
         // alert("Correct!");
@@ -149,13 +131,18 @@ function guess(article){
 }
 
 function updateScore(){
+    console.log("updateScore()");
     countElement.textContent = `${correct}/${count+1}`;
-    let accuracy = count>0 ? (correct/(count+1)*100).toFixed(1): 0  ;
+    let accuracy = count > 0 ? (correct / (count+1) * 100).toFixed(1) : 0 ;
     accuracyElement.textContent = `${accuracy}%`;
 }
 
 function endGame(){
+    console.log("endGame()");
     nextButton.disabled=true;
+    articleElement.textContent = "";
+    let accuracy = count > 0 ? (correct / (count+1) * 100).toFixed(1) : 0 ;
+    wordElement.textContent = `You had ${accuracy}% accuracy`;
     //alert("Game Over!");
 }
  

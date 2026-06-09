@@ -4,54 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joshua Walther - De of Het?</title>
+    <link rel="stylesheet" href="">
     <link rel="stylesheet" href="/projects/de-of-het/deofhet.css">
 </head>
 <body>
-    <nav>
-        <hr>
-        Projects:
-        <a href="/index.html">Home</a></li> |
-        <a href="/projects/kinematics/kinematics.html">Kinematics Simulator</a></li>     |
-        <a href="/projects/de-of-het/de-of-het.html">De of Het</a></li> |
-        <!-- <a href="/projects/matrix-calculator/matrix.html">Matrix Calculator</a></li> | -->
-        <!-- <a href="/projects/flashcards/flashcards.html">Flashcards</a></li> -->
-        <hr>
-    </nav>
+
     <header>
-        <hr>
-        <h1>Gebruik ik "de" of "het"? <img src="/projects/de-of-het/NederlandseVlag.jpg" alt="Nederlandse Vlag" style="width: 30px;"></h1>
-        <p>When studying Dutch I find it hard to remeber the gender of the nouns, here is a tool to study which words use de of het.</p>
-        <p>Als studeer ik Nederlands, vind it het moeilijk om de naamwoorden te onthouden, hier is iets leren welke woorden de of het gebruiken.</p>
-        
+        <nav>
+            <hr>
+            Projects:
+            <a href="/index.html">Home</a></li> |
+            <a href="/projects/kinematics/kinematics.html">Kinematics Simulator</a></li>     |
+            <a href="/projects/de-of-het/de-of-het.html">De of Het</a></li> |
+            <!-- <a href="/projects/matrix-calculator/matrix.html">Matrix Calculator</a></li> | -->
+            <!-- <a href="/projects/flashcards/flashcards.html">Flashcards</a></li> -->
+            <hr>
+        </nav>
+
+        <div>
+            <hr>
+            <h1>Gebruik ik "de" of "het"? <img src="/projects/de-of-het/NederlandseVlag.jpg" alt="Nederlandse Vlag" style="width: 30px;"></h1>
+            <p>When studying Dutch I find it hard to remeber the gender of the nouns, here is a tool to study which words use de of het.</p>
+            <p>To use this tool, you must upload a .csv file containing nouns with their correct article.</p>
+            <p> example.csv
+                hond,de
+                kat,de
+                kind,het
+                meijse,het
+            </p>
+            <!-- <p>Als studeer ik Nederlands, vind it het moeilijk om de naamwoorden te onthouden, hier is iets leren welke woorden de of het gebruiken.</p> -->
+        </div>
         <hr>
     </header>
-    <main>
-        <section id="game">
-            <!-- <h2><span>De</span> of <span>Het</span>?</h2> -->
-            <div id="wordCard">
-                <p >
-                    <span id="article"></span>
-                    <span id="word">De of Het?</span>
-                </p>
-            </div>
-        
-            <div id="buttons">
-                <button id="deButton">De</button>
-                <button id = "nextButton">Next</button>
-                <button id="hetButton">Het</button>
-                <br>
-                <!-- <button id="continueButton">Continue</button> -->
-            </div> 
 
-            
-            <p>Count: <span id="count">0/0</span> Accuracy <span id="accuracy">0%</span></p>
-            
-        </section>
-        <section id="input">
-            <input id="fileInput" type="file" accept=".csv"><br>
-            <button id = "useButton" type="button">Use</button>
-        </section>
+    <main>
+        <div>
+            <section id="input">
+                <button id = "defaultButton" type="button">Use Default</button>
+                <input id="fileInput" type="file" accept=".csv">
+            </section>
+            <section id="game"> 
+                <div>
+                    
+                    <div id="wordCard">
+                        <p >
+                            <span id="article"></span>
+                            <span id="word">De of Het?</span>
+                        </p>
+                    </div>
+                
+                    <div id="buttons">
+                        <button id="deButton">De</button>
+                        <button id = "nextButton">Next</button>
+                        <button id="hetButton">Het</button>
+                        <br>
+                    </div> 
+
+                    <div id="stats">
+                        <p>Count: <span id="count">0/0</span></p>
+                        <p>Accuracy <span id="accuracy">0%</span></p>
+                    </div>
+                </div>
+                
+            </section>
+        </div>
     </main>
+
     <script src="deOfHet.js"></script>
 </body>
 </html>
