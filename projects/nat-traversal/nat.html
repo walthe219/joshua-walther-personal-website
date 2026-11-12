@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2P Game</title>
+</head>
+<body>
+    <h1>P2P Game</h1>
+    <a href="example.html">Example</a>
+    <hr>
+
+    <button id="host-button">Host Game</button>
+    <p id="status">Device ID: NONE</p>
+    <hr>
+
+    <input id="code-field" type="text" placeholder="Enter Host ID">
+    <button id="join-button">Join Game</button>
+    <hr>
+    
+    <pre id="chat-log"></pre>
+    <br>
+    <input id="message-field" type="text" placeholder="Enter message" disabled>
+    <button id="message-button" disabled>Send Message</button>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.5/dist/peerjs.min.js"></script>
+    <script src="nat.js"></script>
+</body>
+</html>
