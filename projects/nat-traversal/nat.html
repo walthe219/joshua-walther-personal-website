@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P2P Game</title>
+    <title>Joshua Walther - P2P NAT Traversal</title>
 </head>
 <body>
-    <h1>P2P Game</h1>
-    <a href="example.html">Example</a>
+    <nav>
+        <hr>
+        Projects:
+        <a href="/index.html">Home</a></li> |
+        <a href="/projects/kinematics/kinematics.html">Kinematics Simulator</a></li>     |
+        <a href="/projects/de-of-het/de-of-het.html">De of Het</a></li> |
+        <a href="/projects/nat-traversal/nat.html">NAT Traversal</a></li> |
+        <hr>
+    </nav>
+
+    <hr>
+    <h1>Peer-to-Peer NAT Traversal</h1>
     <hr>
 
-    <button id="host-button">Host Game</button>
-    <p id="status">Device ID: NONE</p>
+    <button id="host-button">Host Room</button>
+    <p>Room ID: <span id="status">NONE</span> <button id="copy-button" disabled>COPY</button></p>
+    
     <hr>
 
     <input id="code-field" type="text" placeholder="Enter Host ID">
